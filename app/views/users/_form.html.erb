@@ -1,0 +1,22 @@
+<%= form_with(model: @user, local: true) do |f| %>
+  <p> 
+    <%= f.label :Username %><br/> 
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :Email %><br/> 
+    <%= f.email_field :email %> 
+  </p>
+  <p>
+    <%= f.label :Password %><br/> 
+    <%= f.password_field :password %> 
+  </p>
+  <p>
+    <%= f.label :confirm_password %><br/> 
+    <%= f.password_field :password_confirmation %> 
+  </p>
+
+  <p>
+    <%= f.submit %> 
+  </p>
+<% end %>

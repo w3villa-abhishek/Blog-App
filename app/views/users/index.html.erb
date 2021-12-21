@@ -1,0 +1,26 @@
+<h2>List of users registered with us</h2>
+
+<table>
+	<thead>
+		<tr>
+			<td><strong>User Name</strong></td>
+			<td><strong>Email</strong></td>
+			<td><strong>Articles</strong></td>
+			<td><strong>View profile</strong></td>
+
+
+		</tr>
+	</thead>
+
+<tbody>
+	<%@users.each do |user|%>
+
+	<tr>
+		<td><%=user.username%></td>
+		<td><%=user.email%></td>
+		<td><%=pluralize(user.articles.count, "article")%></td>
+		<td><%=link_to "view profile", user_path(user)%></td>
+	</tr>
+	<%end%>
+</tbody>
+</table>

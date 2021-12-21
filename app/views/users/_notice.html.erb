@@ -1,0 +1,11 @@
+<%=flash[:notice]%>
+
+
+<%if @user && @user.errors.any?%> <!--@article needs to check if exist-->
+  <h2>Following errors prevent action to be complete</h2>
+  <ul>
+    <%@user.errors.full_messages.each do |msg|%>
+      <li><%=msg%></li>
+    <%end%>
+  </ul>
+<%end%>

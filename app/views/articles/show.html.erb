@@ -1,0 +1,10 @@
+ <!--or use flash.each do |name, msg| print val-->
+
+<h1>Your Record</h1>
+
+<p> Title is : <strong><%= @article.title%> </strong></p>
+<p>Description is : <strong><%= @article.description%></strong></p>
+
+<br>
+<%=link_to 'See article list', articles_path%> | <%=link_to 'Edit this article', edit_article_path%>
+
