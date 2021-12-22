@@ -1,5 +1,8 @@
 <h2 align="Center"><%=@user.username%>'s profile</h2>
 <br>
+<%=link_to "Log out", logout_path, method: :delete%>
+
+<br>
 <%=link_to "Edit user", edit_user_path%>
 <br>
 <h2>Articles</h2>
