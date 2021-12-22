@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 		@user = User.new(permit_user_params)
 		if @user.save
 			flash[:notice] = "User successfully created"
-			redirect_to articles_path				
+			redirect_to users_path				
 		else
 			flash[:notice] = "Unsuccessful creating the user"			
 			render 'new'
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update(permit_user_params)
-			redirect_to articles_path
+			redirect_to users_path
 			flash[:notice] = "User updated successfully"
 		else
 			flash[:notice] = "User couldn't edit"
