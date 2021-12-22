@@ -1,5 +1,12 @@
 <h2>List of users registered with us</h2>
 
+<div class="digg_pagination">
+   
+    <br>
+    <%= will_paginate @users, :container => false %>
+  </div>
+<br>
+
 <table>
 	<thead>
 		<tr>

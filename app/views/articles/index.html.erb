@@ -1,6 +1,14 @@
 
 <h1>Your record list</h1>
 
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <br>
+    <%= will_paginate @articles, :container => false %>
+  </div>
+  <br>
 <%= render 'article'%>
 
 
