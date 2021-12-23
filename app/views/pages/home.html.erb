@@ -2,5 +2,12 @@
 <h1 align="Center">Blog appication home page</h1>
 
 <div align="Center">
-<%=link_to 'Signup', signup_path%> | <%=link_to 'Log in', login_path%>
+<%=link_to 'Signup', signup_path%> | 
+
+<%if logged_in?%>
+	<%=link_to 'Log out', logout_path, method: :delete%>
+<%else%>	
+	<%=link_to 'Log in', login_path%>
+<%end%>
+
 </div>

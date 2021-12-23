@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new(permit_params)
 		# @article = Article.new title: params[:title], description: params[:description]
-		@article.user = User.first #hard code
+		@article.user = current_user #hard code
 		if @article.save #as soon as it saves a ID will be assiciated with it
 			redirect_to article_path(@article) #rails will extract id from @article, or you can use @articles.id as well 
 			#redirect_to @articles #is a useful shortcut for this

@@ -1,7 +1,8 @@
 <h2 align="Center"><%=@user.username%>'s profile</h2>
 <br>
-<%=link_to "Log out", logout_path, method: :delete%>
-
+<%if logged_in?%>
+	<%=link_to "Log out", logout_path, method: :delete%>
+<%end%>
 <br>
 <%=link_to "Edit user", edit_user_path%>
 <br>
