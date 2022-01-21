@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 	def home
-		flash[:notice] = "you're logged in"
-		redirect_to articles_path
+		if logged_in?
+			flash[:notice] = "you're logged in"
+		end
 	end
 end

@@ -1,11 +1,15 @@
 <h2 align="Center"><%=@user.username%>'s profile</h2>
 <br>
-<%if logged_in?%>
-	<%=link_to "Log out", logout_path, method: :delete%>
-<%end%>
-<br>
-<%=link_to "Edit user", edit_user_path%>
-<br>
+
 <h2>Articles</h2>
 
 <%=render 'articles/article'%>
+
+<br>
+<%if logged_in?%>
+	<%=link_to "Log out", logout_path, method: :delete, class: "btn btn-danger"%>
+	<%=link_to "Delete Your account", user_path(current_user), class: "btn btn-danger", method: :delete, data: {confirm: "are you sure?"}%>
+<%end%>
+ | 
+<%=link_to "Edit user", edit_user_path, class: "btn btn-info"%>
+<br>
