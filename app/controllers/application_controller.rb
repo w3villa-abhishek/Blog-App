@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
 	
-	helper_method :current_user, :logged_in?   #if not mentioned, available to controllers only not views
+	helper_method :current_user, :logged_in?   
+	#if not mentioned, available to controllers only not views
 	
 
 	def current_user

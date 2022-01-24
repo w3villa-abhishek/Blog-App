@@ -15,6 +15,10 @@
 			<td><strong>Articles</strong></td>
 			<td><strong>View profile</strong></td>
 			<td><strong>Edit profile</strong></td>
+			<%if current_user%>
+				<td><strong>Delete profile</strong></td>
+			<%end%>
+
 
 
 		</tr>
@@ -28,7 +32,11 @@
 		<td><%=user.email%></td>
 		<td><%=pluralize(user.articles.count, "article")%></td>
 		<td><%=link_to "view profile", user_path(user)%></td>
-		<td><%=link_to "Edit profile", edit_user_path(user)%></td>
+		<%if user==current_user || current_user.admin?%>
+			<td><%=link_to "Edit profile", edit_user_path(user)%></td>
+			<td><%=link_to "Delete profile",user_path(user), method: :delete, data: {confirm: "are you sure ?"}%></td>
+		<%end%>
+
 
 	</tr>
 	<%end%>

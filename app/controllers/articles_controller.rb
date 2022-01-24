@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
 private
 
 	def require_same_user
-		if current_user != @article.user
+		if current_user != @article.user && !current_user.admin?
 			flash[:notice] = "you're not the owner of this article" 
 			redirect_to @article
 		end
