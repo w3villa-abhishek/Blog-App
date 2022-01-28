@@ -27,6 +27,10 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		if current_user!=@user
+			flash[:notice]="you're not authorized to edit"
+			redirect_to @user
+		end
 	end
 
 	def update
