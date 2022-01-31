@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 	before_action :category_assign, only: [:show, :edit, :update]
-	before_action :require_logged_in, only: [:new, :create, :edit]
-	before_action :only_admin_can_perform, only: [:new, :create, :edit]
+	before_action :require_logged_in, only: [:new, :create, :edit, :update]
+	before_action :only_admin_can_perform, only: [:new, :create, :edit, :update]
 
 def index
 	@categories = Category.all
@@ -23,7 +23,9 @@ def create
 			flash[:notice] = "category succesfully created"
 			redirect_to categories_path
 		else
-			flash[:notice] = "Couldn't create the action"
+			flash.now[:notice] = "Unsuccessful creating category"
+			render 'new'
+
 		end
 end
 
@@ -35,7 +37,8 @@ def update
 			flash[:notice] = "Category updated successfully"
 			redirect_to categories_path
 		else
-			flash[:notice] = "Couldn't update the article"
+			flash.now[:notice] = "Couldn't update the article"
+			render 'edit'
 		end
 end	
 

@@ -9,7 +9,7 @@
   </p>
   <p>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-              <% cb.label() {cb.check_box() + cb.text } %>
+              <% cb.label() {cb.check_box() +  cb.text + ". ."} %> 
             <% end %>
   </p>
   <p>

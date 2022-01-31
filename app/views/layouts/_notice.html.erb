@@ -1,6 +1,6 @@
 <%=notice%>
 
-<%if @user && @user.errors.any?%> <!--@article needs to check if exist-->
+<%if @user && @user.errors.any?%> <!--@user needs to check if exist-->
   <h2>Following errors prevent action to be complete</h2>
   <ul>
     <%@user.errors.full_messages.each do |msg|%>
@@ -9,10 +9,19 @@
   </ul>
 <%end%>
 
-<%if @article && @article.errors.any?%> <!--@article needs to check if exist-->
+<%if @article && @article.errors.any?%> 
   <h2>Following errors prevent action to be complete</h2>
   <ul>
     <%@article.errors.full_messages.each do |msg|%>
+      <li><%=msg%></li>
+    <%end%>
+  </ul>
+<%end%>
+
+<%if @category && @category.errors.any?%>
+  <h2>Following errors prevent action to be complete</h2>
+  <ul>
+    <%@category.errors.full_messages.each do |msg|%>
       <li><%=msg%></li>
     <%end%>
   </ul>
