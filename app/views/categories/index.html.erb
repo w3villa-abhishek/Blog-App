@@ -1,0 +1,19 @@
+<h1 align="Center">List of categories available in the BlogApp....</h1>
+<br>
+<table align="Center" border="2px">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Number of Articles</th>
+		</tr>
+	</thead>
+	<tbody>	
+		<%@categories.each do |category|%>
+		<tr align="Center">
+			<td><%=category.name%></td>
+			<td><%=pluralize(category.articles.count, "article")%></td>
+		</tr>
+		<%end%>
+	</tbody>
+
+</table>

@@ -5,6 +5,7 @@
 			<td><strong>Description</strong></td>
 			<td colspan="3" align="Center"><strong>Action</strong></td>
 			<td><strong>Created by</strong></td>
+			<td><strong>Categories</strong></td>
 		</tr>
 	</thead>
 
@@ -17,7 +18,13 @@
 		<td><%= link_to 'Show', article_path(article)  %></td>
 		<td><%= link_to 'Edit', edit_article_path(article)  %></td>
 		<td><%=link_to 'Delete', article_path(article), method: :delete, data: {confirm: "are you sure?"}%></td>
-		<td align="right"><%= article.user.username if article.user %></td>
+		
+		<td align="left"><%= article.user.username if article.user %></td>
+		<td align="right">
+			<%if article.categories.any?%>
+    		<%=render article.categories%> <!--refer show-->
+			<%end%>
+		</td>
 	</tr>
 	<%end%>
 </tbody>

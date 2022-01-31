@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+	class ArticlesController < ApplicationController
 	before_action :article_obj, only: [:show, :edit, :update, :destroy]
 	before_action :require_logged_in, except: [:show, :index]
 	before_action :require_same_user, only: [:edit,:update, :destroy]
@@ -29,18 +29,24 @@ class ArticlesController < ApplicationController
 			#redirect_to @articles #is a useful shortcut for this
 			flash[:notice] = "Blog created successfully"
 		else
+			flash.now.notice = "Unsuccessful creating article"
 			render 'new'
 		end
 	end
 
 	def edit
+		if current_user!=@article.user
+			flash[:notice] = "Only the owners are allowed to edit the article"
+			redirect_to @article
+		end
 	end
 
 	def update
 		if @article.update(permit_params)
-			redirect_to @article
 			flash.notice = "Article updated successfully"
+			redirect_to @article
 		else
+			flash.now.notice = "Unsuccessful updating article"
 			render 'edit'
 		end
 	end
@@ -65,7 +71,7 @@ private
 	end
 
 	def permit_params
-		params.require(:article).permit(:title, :description)
+		params.require(:article).permit(:title, :description, category_ids: [])
 	end
 
 end

@@ -4,6 +4,10 @@
 
 <p> Title is : <strong><%= @article.title%> </strong></p>
 <p>Description is : <strong><%= @article.description%></strong></p>
+<%if @article.categories.any?%>
+    Categories: 
+    <%=render @article.categories%> <!--expects a category partial with category obj provided -->
+<%end%>
 
 <br>
 <%=link_to 'See article list', articles_path%> | <%=link_to 'Edit this article', edit_article_path%>

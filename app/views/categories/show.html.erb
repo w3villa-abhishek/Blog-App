@@ -1,0 +1,11 @@
+<h2 align="Center">Category: <%= @category.name%></h2>
+<br>
+
+<h2>Articles associated</h2>
+
+<%=render 'articles/article'%>
+
+<br>
+<%if logged_in?%>
+<%=link_to "Edit category", edit_category_path, class: "btn btn-info"%>
+<%end%> 
